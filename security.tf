@@ -30,6 +30,14 @@ resource "aws_security_group" "loadtest" {
   }
 
   ingress {
+    description = "Locust Web UI"
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "TCP"
+    cidr_blocks = var.web_cidr_ingress_blocks
+  }
+
+  ingress {
     description = "port 22"
     from_port   = 22
     to_port     = 22
