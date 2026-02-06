@@ -1,7 +1,7 @@
 #!/bin/bash
 
-sudo yum update -y
-sudo yum install -y pcre2-devel.x86_64 python gcc python3-devel tzdata curl unzip bash htop
+sudo dnf update -y
+sudo dnf install -y pcre2-devel.x86_64 python3 gcc python3-devel python3-pip tzdata curl unzip bash htop
 
 # LOCUST
 export LOCUST_VERSION="2.9.0"
