@@ -13,6 +13,12 @@ resource "aws_instance" "leader" {
   iam_instance_profile = aws_iam_instance_profile.loadtest.name
   user_data_base64     = local.setup_leader_base64
 
+  metadata_options {
+    http_tokens                 = "required"
+    http_put_response_hop_limit = 1
+    http_endpoint               = "enabled"
+  }
+
   #PUBLISHING SCRIPTS AND DATA
   key_name = aws_key_pair.loadtest.key_name
   connection {
